@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="smb://192.168.1.24/" added="2023-01-17T00:13:03.071403Z" modified="2023-01-17T00:13:03.071414Z" visited="2023-01-17T00:13:03.071406Z">
+    <title>Partages Windows sur 192.168.1.24</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2023-01-17T00:13:03.071409Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://diffty@freddyclement.com/" added="2024-02-27T11:55:51.370301Z" modified="2024-02-27T11:55:51.370314Z" visited="2024-02-27T11:55:51.370305Z">
+    <title>/ sur freddyclement.com</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-02-27T11:55:51.370309Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="sftp://diffty@automne.freddyclement.com/" added="2024-03-22T08:18:27.695056Z" modified="2024-03-22T08:18:27.695059Z" visited="2024-03-22T08:18:27.695057Z">
+    <title>/ sur automne.freddyclement.com</title>
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="org.gnome.Nautilus" exec="&apos;org.gnome.Nautilus %u&apos;" modified="2024-03-22T08:18:27.695058Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
