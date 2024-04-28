@@ -207,8 +207,10 @@ bindsym $mod+Tab exec $HOME/.config/rofi/launchers/type-6/launcher-window.sh
 bindsym --whole-window $mod+button4 workspace prev_on_output
 bindsym --whole-window $mod+button5 workspace next_on_output
 
-# screenshots (WIP)
-bindsym Ctrl+Shift+Print exec maim -s ~/temp.png
+# screenshots
+bindsym Print exec maim | tee /mnt/sdb1/seafile/Main/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)_$(xdotool getactivewindow getwindowclassname).png | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec maim -s | tee /mnt/sdb1/seafile/Main/Screenshots/$(date +%Y-%m-%d-%H-%M-%S)_$(xdotool getactivewindow getwindowclassname).png | xclip -selection clipboard -t image/png
+
 
 # workspace assignment on specific monitors
 workspace $ws1 output $screen1
@@ -238,7 +240,7 @@ assign [class="KeePassXC"] $ws8
 smart_borders on
 # smart_gaps on
 #gaps outer 5 
-gaps inner 6 
+gaps inner 6
 
 title_align center
 #default_border pixel 
