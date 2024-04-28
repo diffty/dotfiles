@@ -51,6 +51,7 @@ tiling_drag modifier titlebar
 
 # start a terminal (previously was i3-sensible-terminal)
 bindsym $mod+Return exec --no-startup-id kitty -1
+bindsym $mod+Shift+e exec --no-startup-id nemo
 
 # start an app bound to focused workspace
 bindsym $mod+Shift+Return exec --no-startup-id python $HOME/.config/i3/workspace-app-launch.py
@@ -169,7 +170,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Ctrl+Alt+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
