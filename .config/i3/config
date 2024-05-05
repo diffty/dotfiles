@@ -266,8 +266,7 @@ client.background       #ffffff
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh 
 exec_always --no-startup-id "picom"
-exec_always --no-startup-id "feh --bg-fill ~/Seafile/Main/Images/Wallpapers/8pxl\ Vol.2/1\ \(18\).png ~/Seafile/Main/Images/Wallpapers/8pxl\ Vol.2/1\ \(17\).png"
+exec_always --no-startup-id "feh --bg-fill /mnt/sdb1/seafile/Main/Images/Wallpapers/8pxl\ Vol.2/1\ \(18\).png ~/Seafile/Main/Images/Wallpapers/8pxl\ Vol.2/1\ \(17\).png"
 exec --no-startup-id /usr/lib/gsd-xsettings
 exec_always --no-startup-id autorandr -c
 exec seafile-applet
-exec keepassxc
