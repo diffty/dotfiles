@@ -1,0 +1,8 @@
+default-timeout=5000
+group-by=app-name
+background-color=#282828
+#border-color=#35cff2
+border-size=0
+
+border-radius=10
+padding=20
