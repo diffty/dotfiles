@@ -17,11 +17,11 @@
     --color13: #E075DF;
     --color14: #F98F9F;
     --color15: #f5dbc4;
-    --window-bg: alpha(var(--background), 0.6);
-    --module-bg: alpha(var(--background), 0.4);
-    --border-color: var(--color11);
-    --ws-active: var(--color9);
-    --ws-inactive: var(--color3);
+    --window-bg: alpha(var(--background), 1);
+    --module-bg: alpha(var(--color1), 0.2);
+    --border-color: alpha(var(--color12), 0.5);
+    --ws-active: var(--color15);
+    --ws-inactive: var(--color9);
     --ws-empty: var(--color8);
     --ws-hover: var(--color1);
     --ws-urgent: var(--color12);
@@ -34,41 +34,69 @@
     /* text color */
     color: var(--foreground);
     font-size: 14px;
-    font-family: "Iosevka Nerd Font Mono", sans-serif;
+    font-family: "Inter", "Iosevka Nerd Font Mono", sans-serif;
+
     /* pill shape */
-    border-radius: 100px;
     min-width: 10px;
+}
+
+#bar {
+    background-color: alpha(var(--window-bg), 1);
 }
 
 #bar-inner {
     padding: 4px;
     border: solid 2px;
     border-color: var(--border-color);
-    background-color: var(--window-bg);
+    /* background-color: var(--window-bg); */
     min-height: 28px;
 }
 
 #workspaces {
-    padding: 6px;
+    padding: 8px;
     background-color: var(--module-bg);
+    border-radius: 18px;
+    margin: 6px;
 }
 
 #workspaces>button {
     background-color: var(--ws-inactive);
-    min-width: 20px;
-    min-height: 20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-radius: 16px;
+    min-width: 18px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-#workspaces>button:hover {
-    background-color: var(--ws-hover);
+#workspaces>button>label {
+    color: alpha(var(--foreground), 1);
 }
 
-#workspaces>button.urgent {
-    background-color: var(--ws-urgent);
+@keyframes fade-out {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
 }
 
 #workspaces>button.active {
     background-color: var(--ws-active);
+}
+
+#workspaces>button.active>label {
+    color: alpha(var(--color0), 1);
+}
+
+#workspaces>button:hover {
+    background-color: var(--ws-hover);
+    color: alpha(var(--foreground), 1);
+}
+
+#workspaces>button:hover>label {
+    color: alpha(var(--foreground), 1);
+}
+
+#workspaces>button.urgent {
+    background-color: var(--ws-urgent);
+    animation: fade-out 0.5s infinite ease-in-out alternate;
 }
 
 #workspaces>button.empty {
@@ -79,11 +107,52 @@
 /* system tray */
 #system-tray {
     background-color: var(--module-bg);
+    border-radius: 18px;
+    margin: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+#system-tray>button {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#system-tray>button:hover {
+    padding-left: 3px;
+}
+
+
+/* date time */
+#datetime {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#datetime>label {
+    font-family: "Iosevka Nerd Font Mono", sans-serif;
+    font-size: 1.15em;
+}
+
+/* apps dock */
+#apps-dock {
+
+}
+
+#apps-dock>button {
+    margin-top: 3px;
+    margin-bottom: 3px;
+    min-width: 24px;
+    transition: all 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#apps-dock>button:hover {
+    padding-left: 6px;
 }
 
 /* menu and menu items (written for the system tray) */
 menu {
-    border: solid 2px;
+    border: solid 1px;
     border-radius: 10px;
     border-color: var(--border-color);
     background-color: var(--window-bg);
@@ -92,24 +161,25 @@ menu {
 menu>menuitem {
     border-radius: 0px;
     background-color: var(--module-bg);
-    padding: 6px;
+    padding: 6px 6px 4px 4px;
     margin-left: 2px;
     margin-right: 2px;
 }
 
 menu>menuitem:first-child {
-    margin-top: 1px;
+    margin-top: 2px;
     border-radius: 8px 8px 0px 0px;
 }
 
 menu>menuitem:last-child {
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     border-radius: 0px 0px 8px 8px;
 }
 
 menu>menuitem:hover {
     background-color: var(--border-color);
 }
+
 
 tooltip {
     border: solid 2px;

@@ -27,15 +27,31 @@ class AppButton(Button):
     def __init__(self, app: GioUnix.DesktopAppInfo):
         self._app: GioUnix.DesktopAppInfo = app
 
-        super().__init__(
-            image=Gtk.Image.new_from_gicon(
-                self._app.get_icon(),
-                Gtk.IconSize.BUTTON
-            )
+        icon_image = Gtk.Image.new_from_gicon(
+            self._app.get_icon(),
+            Gtk.IconSize.LARGE_TOOLBAR,
         )
 
-        self.connect("button-press-event", self.on_clicked)
-    
+        super().__init__(
+            image=icon_image
+        )
+
+        self.connect("button-release-event", self.on_clicked)
+        self.connect("drag-data-get", self.on_drag_data_get)
+        self.connect("drag-data-received", self.on_drag_received)
+        
+        self.drag_source_set(
+            Gdk.ModifierType.BUTTON1_MASK,
+            targets=[Gtk.TargetEntry.new("text/plain", 0, 0)],
+            actions=Gdk.DragAction.MOVE,
+        )
+
+        self.drag_dest_set(
+            flags=Gtk.DestDefaults.ALL,
+            targets=[Gtk.TargetEntry.new("text/plain", 0, 0)],
+            actions=Gdk.DragAction.MOVE,
+        )
+
     def on_clicked(self, _, event):
         match event.button:
             case 1:
@@ -62,10 +78,22 @@ class AppButton(Button):
     def on_action_clicked(self, action_name: str, menu_item: Gio.MenuItem):
         self._app.launch_action(action_name, None)
 
+    def on_drag_data_get(
+            self,
+            widget,
+            context: Gdk.DragContext,
+            selection_data: Gtk.SelectionData,
+            info: int,
+            time_: int):
+        pass
+            
+    def on_drag_received(self, *args, **kwargs):
+        print("received", args, kwargs)
+    
 
 class AppsDock(Box):
-    def __init__(self):
-        super().__init__(orientation="v")
+    def __init__(self, **kwargs):
+        super().__init__(orientation="v", **kwargs)
 
         service = get_gnome_favs_apps_service()
         for a in service.apps:
